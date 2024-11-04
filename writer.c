@@ -27,6 +27,7 @@
 #include <sys/stat.h>
 #include <string.h>
 #include <time.h>
+#include <stdlib.h>
 
 /**
  * Write to a file/inode.  It makes holes along the way...
