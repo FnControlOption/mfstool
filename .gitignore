@@ -9,7 +9,6 @@ install-sh
 missing
 protos.h
 config.h.in
-ChangeLog
 mfstool.1
 mfstool
 
