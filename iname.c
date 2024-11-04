@@ -68,7 +68,7 @@ int ilookup_name(struct minix_fs_dat *fs,int inode,const char *lname,
     for (j = 0; j < bsz ; j+= dentsz) {
       u16 fino = *((u16 *)(blk+j));
       if (!fino) continue;
-      if (!cmp_name(lname,blk+j+2,dentsz-2)) {
+      if (!cmp_name(lname,(char *)blk+j+2,dentsz-2)) {
         if (blkp) *blkp = i / BLOCK_SIZE;
         if (offp) *offp = j;
         return fino;
@@ -117,7 +117,7 @@ SKIP_ALL:
   }
   /* Create directory entry */
   *((u16 *)(blk+j)) = inode;
-  strncpy(blk+j+2,name,dentsz-2);
+  strncpy((char *)blk+j+2,name,dentsz-2);
   
   /* Update directory */
   write_inoblk(fs,dinode,nblk,blk);

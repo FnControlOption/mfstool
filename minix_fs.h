@@ -150,12 +150,12 @@ struct minix_fs_dat {
 #define INODE(fs,inode) ((fs)->ino.v1+((inode)-1))
 #define INODE2(fs,inode) ((fs)->ino.v2+((inode)-1))
 
-#define inode_in_use(fs,x) (bit((fs)->inode_bmap,(x)))
-#define zone_in_use(fs,x) (bit((fs)->zone_bmap,(x)))
-#define mark_inode(fs,x) (setbit((fs)->inode_bmap,(x)))
-#define unmark_inode(fs,x) (clrbit((fs)->inode_bmap,(x)))
-#define mark_zone(fs,x) (setbit((fs)->zone_bmap,(x)-FIRSTZONE(fs)+1))
-#define unmark_zone(fs,x) (clrbit((fs)->zone_bmap,(x)-FIRSTZONE(fs)+1))
+#define inode_in_use(fs,x) (bit((char*)(fs)->inode_bmap,(x)))
+#define zone_in_use(fs,x) (bit((char*)(fs)->zone_bmap,(x)))
+#define mark_inode(fs,x) (setbit((char*)(fs)->inode_bmap,(x)))
+#define unmark_inode(fs,x) (clrbit((char*)(fs)->inode_bmap,(x)))
+#define mark_zone(fs,x) (setbit((char*)(fs)->zone_bmap,(x)-FIRSTZONE(fs)+1))
+#define unmark_zone(fs,x) (clrbit((char*)(fs)->zone_bmap,(x)-FIRSTZONE(fs)+1))
 
 #define get_free_inode(fs) get_free_bit((fs)->inode_bmap,IMAPS(fs))
 #define get_free_block(fs) (get_free_bit((fs)->zone_bmap,ZMAPS(fs))+FIRSTZONE(fs)-1)

@@ -70,7 +70,7 @@ void dodir(struct minix_fs_dat *fs,const char *path) {
       u16 fino = *((u16 *)(blk+j));
       // printf("%d ",fino);
       if (fino == 0) continue;
-      outent(stdout,blk+j+2,dentsz-2);
+      outent(stdout,(char *)blk+j+2,dentsz-2);
     }
   }
 }
