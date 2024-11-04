@@ -7,7 +7,6 @@ configure
 depcomp
 install-sh
 missing
-protos.h
 config.h.in
 mfstool.1
 mfstool
