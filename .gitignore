@@ -8,7 +8,6 @@ depcomp
 install-sh
 missing
 config.h.in
-mfstool.1
 mfstool
 
 # http://www.gnu.org/software/automake
